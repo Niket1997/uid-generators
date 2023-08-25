@@ -13,7 +13,7 @@ public class Migration {
         String queryCreateUIDCountsTable = FileLoader.loadFromFile("amazon/src/main/resources/db.migrations/create_uid_counts.sql");
         connection.createStatement().executeUpdate(queryCreateUIDCountsTable);
 
-        String queryInsertPaymentsServiceInUIDCountsTable = "INSERT INTO uid_counts (service) VALUES ('PAYMENTS');";
+        String queryInsertPaymentsServiceInUIDCountsTable = "INSERT INTO uid_counts (client) VALUES ('PAYMENTS');";
         connection.createStatement().executeUpdate(queryInsertPaymentsServiceInUIDCountsTable);
         connection.close();
     }

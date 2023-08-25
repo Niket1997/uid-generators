@@ -1,5 +1,6 @@
 package org.niket.services;
 
+import org.niket.enums.Client;
 import org.niket.interfaces.IDGenerationRepository;
 import org.niket.interfaces.IDGenerationService;
 import org.niket.records.UIDRange;
@@ -19,8 +20,8 @@ public class IDGenerationServiceImpl implements IDGenerationService {
     }
 
     @Override
-    public UIDRange getUIDRange(org.niket.enums.Service service, int limit) throws SQLException {
+    public UIDRange getUIDRange(Client client, int limit) throws SQLException {
         requestValidator.validateGetUIDRangeRequest(limit);
-        return repository.getUIDRange(service, limit);
+        return repository.getUIDRange(client, limit);
     }
 }

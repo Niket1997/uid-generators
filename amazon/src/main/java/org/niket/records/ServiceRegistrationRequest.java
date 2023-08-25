@@ -2,9 +2,8 @@ package org.niket.records;
 
 import org.niket.enums.Client;
 
-public record UIDCount(
-        int id,
+public record ServiceRegistrationRequest(
         Client client,
-        Long count
+        Long offset
 ) {
 }

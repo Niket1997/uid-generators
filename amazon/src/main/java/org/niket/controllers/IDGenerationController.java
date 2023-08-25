@@ -2,7 +2,7 @@ package org.niket.controllers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.niket.enums.Service;
+import org.niket.enums.Client;
 import org.niket.interfaces.IDGenerationService;
 import org.niket.records.UIDRange;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +22,8 @@ public class IDGenerationController {
     }
 
     @GetMapping("v1/uid/range")
-    public UIDRange getUIDRange(@RequestParam("service") Service service, @RequestParam(value = "limit", defaultValue = "500") int limit) throws SQLException {
-        logger.info(String.format("Received getUIDRange request for service %s with limit %d", service, limit));
-        return idGenerationService.getUIDRange(service, limit);
+    public UIDRange getUIDRange(@RequestParam("client") Client client, @RequestParam(value = "limit", defaultValue = "500") int limit) throws SQLException {
+        logger.info(String.format("Received getUIDRange request for client %s with limit %d", client, limit));
+        return idGenerationService.getUIDRange(client, limit);
     }
 }

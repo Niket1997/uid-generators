@@ -1,6 +1,6 @@
 package org.niket.enums;
 
-public enum Service {
+public enum Client {
     PAYMENTS,
     ORDERS
 }
