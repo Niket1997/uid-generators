@@ -4,4 +4,8 @@
 ```bash 
 docker-compose -f docker-compose.yml up -d
 ```
-3. Run the application.
+3. Run the application
+4. Use following curl to test it out.
+```bash
+curl --location 'localhost:8090/v1/uid/range?limit=800&client=PAYMENTS'
+```
