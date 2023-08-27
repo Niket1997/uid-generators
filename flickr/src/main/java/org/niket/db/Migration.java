@@ -7,13 +7,13 @@ import java.sql.Connection;
 public class Migration {
     public static void reset() throws Exception {
         Connection connection = HikariConnectionPool.getConnection();
-        String queryDropTableUIDCounts = "DROP TABLE IF EXISTS uid_counts;";
+        String queryDropTableUIDCounts = "DROP TABLE IF EXISTS tickets;";
         connection.createStatement().executeUpdate(queryDropTableUIDCounts);
 
-        String queryCreateUIDCountsTable = FileLoader.loadFromFile("amazon/src/main/resources/db.migrations/create_table_uid_counts.sql");
-        connection.createStatement().executeUpdate(queryCreateUIDCountsTable);
+        String queryCreateTicketsTable = FileLoader.loadFromFile("flickr/src/main/resources/db.migrations/create_table_tickets.sql");
+        connection.createStatement().executeUpdate(queryCreateTicketsTable);
 
-        String queryInsertPaymentsServiceInUIDCountsTable = "INSERT INTO uid_counts (client) VALUES ('PAYMENTS');";
+        String queryInsertPaymentsServiceInUIDCountsTable = "INSERT INTO tickets (id, stub) VALUES (0, 'a');";
         connection.createStatement().executeUpdate(queryInsertPaymentsServiceInUIDCountsTable);
         connection.close();
     }

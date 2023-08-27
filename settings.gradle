@@ -1,3 +1,4 @@
 rootProject.name = 'uid-generators'
 include 'amazon'
+include 'flickr'
 
